@@ -13,7 +13,7 @@ const router = new VueRouter({
 export const globalStore = new Vue({
   data: {
     phpPath: 'https://carrick-cs313-movie-app-php.herokuapp.com'
-    //phpPath: 'http://localhost:8000'
+    //phpPath: 'http://localhost:8000/web'
   }
 })
 
