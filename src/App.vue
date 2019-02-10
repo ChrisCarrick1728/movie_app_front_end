@@ -13,6 +13,8 @@
 import Header from './components/header.vue'
 import Login from './pages/loginPage.vue'
 import Home from './pages/homePage.vue'
+import axios from 'axios'
+import {globalStore} from './main.js'
 
 export default {
   components: {
@@ -30,6 +32,9 @@ export default {
     updateComponent: function (event) {
       this.main_component = event
     }
+  },
+  beforeCreate() {
+    axios.get(globalStore.phpPath + '/php/sessionstart.php');
   }
 }
 </script>

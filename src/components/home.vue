@@ -1,13 +1,16 @@
 <template>
   <div>
     <h1>Home Page</h1>
-    <a v-on:click="addMovies">Add Movies</a>
-    <a v-on:click="browseMovies">Browse Movies</a>
+    <nav-link></nav-link>
   </div>
 </template>
 
 <script>
+import NavLinks from '../components/links.vue';
 export default {
+  components: {
+    'nav-link': NavLinks
+  },
   name: 'homeComp_app',
   data () {
     return {
@@ -16,9 +19,6 @@ export default {
   methods: {
     addMovies: function () {
       console.log('add Movies clicked')
-    },
-    browseMovies: function () {
-      console.log('browse movies clicked')
     }
   }
 }

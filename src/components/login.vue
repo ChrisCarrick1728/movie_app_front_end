@@ -36,6 +36,7 @@ export default {
       params.append('password', this.logon_password)
       axios.post(globalStore.phpPath + '/php/checkUser.php', params)
       .then(response => {
+        console.log(response.data);
         if (response.data === 1) {
           window.location = '#/home'
         }
