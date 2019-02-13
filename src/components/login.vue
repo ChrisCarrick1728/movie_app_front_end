@@ -34,6 +34,7 @@ export default {
       var params = new URLSearchParams()
       params.append('userName', this.logon_username)
       params.append('password', this.logon_password)
+      axios.defaults.withCredentials = true;
       axios.post(globalStore.phpPath + '/php/checkUser.php', params)
       .then(response => {
         console.log(response.data);

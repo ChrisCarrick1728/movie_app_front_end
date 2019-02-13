@@ -34,7 +34,6 @@ export default {
     }
   },
   beforeCreate() {
-    axios.get(globalStore.phpPath + '/php/sessionstart.php');
   }
 }
 </script>
