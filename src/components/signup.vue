@@ -86,7 +86,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .loginContainer {
   width: 90%;
   max-width: 300px;

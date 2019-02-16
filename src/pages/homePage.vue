@@ -41,7 +41,7 @@ export default {
     })
   }
 }
-</script>
+</script scoped>
 
 <style>
 html, body {
