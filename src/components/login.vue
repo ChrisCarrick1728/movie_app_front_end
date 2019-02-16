@@ -75,6 +75,7 @@ p {
   font-size: 12px;
   text-indent: 10px;
   margin: 10px 0px 0px;
+  color: #555;
 }
 
 .center {
