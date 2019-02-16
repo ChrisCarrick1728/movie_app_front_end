@@ -9,6 +9,8 @@
 
 <script>
 import Home from '../components/home.vue'
+import axios from 'axios'
+import {globalStore} from '../main.js'
 
 export default {
   components: {
@@ -28,6 +30,15 @@ export default {
         this.component = 'app-login'
       }
     }
+  },
+  created: function() {
+    axios.post(globalStore.phpPath + '/php/checkauth.php')
+    .then(response => {
+      console.log(response.data);
+      if (response.data[0] === 'false') {
+        window.location = '#/'
+      }
+    })
   }
 }
 </script>

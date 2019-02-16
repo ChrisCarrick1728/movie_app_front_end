@@ -1,13 +1,23 @@
 <template>
   <div>
-    <h1>Home Page</h1>
-    <a v-on:click="addMovies">Add Movies</a>
-    <a v-on:click="browseMovies">Browse Movies</a>
+    <h1>Add Movies Page</h1>
+    <all-movies></all-movies>
+    <movie-search></movie-search>
   </div>
 </template>
 
 <script>
+import AllMovies from '../components/links.vue'
+import MoviesSearch from '../components/addSearch.vue'
+import Home from '../components/home.vue'
+import axios from 'axios'
+import {globalStore} from '../main.js'
+
 export default {
+  components: {
+    'all-movies': AllMovies,
+    'movie-search': MoviesSearch
+  },
   name: 'addPage_app',
   data () {
     return {
@@ -20,6 +30,15 @@ export default {
     browseMovies: function () {
       console.log('browse movies clicked')
     }
+  },
+  created: function() {
+    axios.post(globalStore.phpPath + '/php/checkauth.php')
+    .then(response => {
+      console.log(response.data);
+      if (response.data[0] === 'false') {
+        window.location = '#/'
+      }
+    })
   }
 }
 </script>

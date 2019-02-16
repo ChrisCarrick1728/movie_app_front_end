@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <router-link to="/">Logout</router-link>
+    <router-link to="/logout">Logout</router-link>
     <router-link to="/home">Home</router-link>
     <router-link to="/add">Add Movie</router-link>
     <router-link to="/browse">Browse Movies</router-link>

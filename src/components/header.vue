@@ -3,6 +3,10 @@
     <div class="logo">
       <img src="../assets/SVG/moviereel.svg">
       <h1>{{ appName }}</h1>
+      <div class="logout">
+        <router-link to="/logout">logout</router-link>
+
+      </div>
     </div>
   </header>
 </template>
@@ -18,6 +22,17 @@ export default {
 </script>
 
 <style scoped>
+.logout {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: skyblue !important;
+}
+
+.logout a {
+  color: skyblue;
+}
+
 html, body {
   margin: 0px !important;
 }

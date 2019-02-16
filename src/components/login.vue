@@ -5,10 +5,12 @@
         <h3>Please Sign in:</h3>
       </div>
       <div class="loginInput">
-        <input type="text" name="logon_username" value="" v-model="logon_username" placeholder="User Name...">
-        <input type="password" name="logon_password" value="" v-model="logon_password" placeholder="Password...">
+        <p>Username:</p>
+        <input type="text" name="logon_username" value="" v-model="logon_username">
+        <p>Password:</p>
+        <input type="password" name="logon_password" value="" v-model="logon_password">
         <input type="button" name="submit" value="Login" v-on:click="validateLogon">
-        <p>Or</p>
+        <p class="center">Or</p>
         <input type="button" name="signup" value="Sign up" v-on:click="$emit('swapLogin')">
       </div>
     </div>
@@ -38,7 +40,7 @@ export default {
       axios.post(globalStore.phpPath + '/php/checkUser.php', params)
       .then(response => {
         console.log(response.data);
-        if (response.data === 1) {
+        if (response.data[0] === 'true') {
           window.location = '#/home'
         }
       })
@@ -66,20 +68,27 @@ export default {
   border-bottom: 1px solid #333;
 }
 
-.loginInput p, .signupInput p {
+p {
   font-family: sans-serif;
   font-weight: lighter;
-  text-align: center;
+  text-align: left;
   font-size: 12px;
+  text-indent: 10px;
+  margin: 10px 0px 0px;
+}
+
+.center {
+  text-align: center;
 }
 
 .loginInput input {
   width: 100%;
   height: 30px;
-  margin: 10px 0px;
+  margin: 5px 0px;
   border: none;
   padding: 0px;
   text-indent: 10px;
+  background-color: #eee;
 }
 
 input:focus {
