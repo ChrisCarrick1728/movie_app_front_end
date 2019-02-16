@@ -68,7 +68,7 @@ export default {
   border-bottom: 1px solid #333;
 }
 
-p {
+.loginInput p {
   font-family: sans-serif;
   font-weight: lighter;
   text-align: left;
