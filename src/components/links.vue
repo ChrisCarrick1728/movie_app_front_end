@@ -34,7 +34,6 @@ export default {
   beforeCreate: function() {
     axios.post(globalStore.phpPath + '/php/checkauth.php')
     .then(response => {
-      console.log(response.data);
       if (response.data[0] === 'false') {
         this.userAuthenticated = false;
         window.location = '#/login'

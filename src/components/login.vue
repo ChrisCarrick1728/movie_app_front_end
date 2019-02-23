@@ -31,20 +31,16 @@ export default {
   },
   methods: {
     validateLogon: function () {
-      console.log('login attempted')
-      console.log(globalStore.phpPath)
       var params = new URLSearchParams()
       params.append('userName', this.logon_username)
       params.append('password', this.logon_password)
       axios.defaults.withCredentials = true;
       axios.post(globalStore.phpPath + '/php/checkUser.php', params)
       .then(response => {
-        console.log(response.data);
         if (response.data[0] === 'true') {
           window.location = '#/browse'
         }
       })
-      //window.location = '#/home'
     }
   }
 }

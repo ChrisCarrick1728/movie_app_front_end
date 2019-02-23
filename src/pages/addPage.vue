@@ -23,17 +23,10 @@ export default {
     }
   },
   methods: {
-    addMovies: function () {
-      console.log('add Movies clicked')
-    },
-    browseMovies: function () {
-      console.log('browse movies clicked')
-    }
   },
   created: function() {
     axios.post(globalStore.phpPath + '/php/checkauth.php')
     .then(response => {
-      console.log(response.data);
       if (response.data[0] === 'false') {
         window.location = '#/'
       }

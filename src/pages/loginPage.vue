@@ -35,7 +35,6 @@ export default {
     }
   },
   updateComponent: function (event) {
-    console.log(event)
   }
 }
 </script>

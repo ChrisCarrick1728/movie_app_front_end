@@ -41,25 +41,21 @@ export default {
   methods: {
     deleteMovie: function() {
       if (confirm("Are you sure you want to delete?")) {
-        console.log('delete movie')
         var params = new URLSearchParams()
         params.append('title', event.target.name)
         axios.defaults.withCredentials = true;
         axios.post(globalStore.phpPath + '/php/deleteMovie.php', params)
         .then(response => {
-          console.log(response.data)
           this.refreshMoviesList();
         })
       }
     },
     watchMovie: function() {
-      console.log('watch movie')
       var params = new URLSearchParams()
       params.append('title', event.target.name)
       axios.defaults.withCredentials = true;
       axios.post(globalStore.phpPath + '/php/watchMovie.php', params)
       .then(response => {
-        console.log(response.data)
         this.refreshMoviesList();
       })
     },
@@ -67,7 +63,6 @@ export default {
       axios.defaults.withCredentials = true;
       axios.get(globalStore.phpPath + '/php/showAllMovies.php')
       .then(response => {
-        //console.log(response.data)
         this.allMoviesObj = response.data
       })
     }
@@ -76,7 +71,6 @@ export default {
     axios.defaults.withCredentials = true;
     axios.get(globalStore.phpPath + '/php/showAllMovies.php')
     .then(response => {
-      console.log(response.data)
       this.allMoviesObj = response.data
     })
   }

@@ -63,7 +63,6 @@ export default {
         axios.defaults.withCredentials = true;
         axios.post(globalStore.phpPath + '/php/addUser.php', params)
         .then(response => {
-          console.log(response.data);
           if (response.data[0] === 'Account created successfully.') {
             this.errorMessage = response.data[0];
             for (var i = 0; i < inputs.length; i++) {

@@ -54,6 +54,7 @@
 <script>
 import {globalStore} from '../main.js'
 import axios from 'axios'
+
 export default {
   name: 'movie_format_app',
   data () {
@@ -69,15 +70,12 @@ export default {
   },
   methods: {
     searchAPI: function() {
-      console.log("search clicked")
       var params = new URLSearchParams()
       params.append('search', this.searchString)
       axios.defaults.withCredentials = true;
       axios.post(globalStore.phpPath + '/php/searchAPI.php', params)
       .then(response => {
-        console.log(response.data)
         if (typeof response.data['message'] !== 'undefined') {
-          console.log(response.data['message'])
         } else {
           this.searchResults = response.data
           this.searchSuccesfull = true
@@ -85,7 +83,6 @@ export default {
       })
     },
     addToLibrary: function() {
-      console.log('add to library')
       var params = new URLSearchParams()
       params.append('title', this.searchResults[event.target.name]['title'])
       params.append('poster_url', this.searchResults[event.target.name]['poster_path'])
@@ -95,32 +92,26 @@ export default {
       axios.defaults.withCredentials = true;
       axios.post(globalStore.phpPath + '/php/addToLibrary.php', params)
       .then(response => {
-        console.log(response.data)
         if (typeof response.data['message'] !== 'undefined') {
-          console.log(response.data['message'])
         } else {
           this.showOverlay = !this.showOverlay;
         }
       })
     },
     addNewFormat: function() {
-      console.log('add new format')
       var params = new URLSearchParams()
       params.append('movie_format', prompt("Enter a Media Format", "DVD"))
       axios.defaults.withCredentials = true;
       axios.post(globalStore.phpPath + '/php/addNewMovieFormat.php', params)
       .then(response => {
-        console.log(response.data)
         this.getMovieFormat();
       })
     },
     getMovieFormat: function() {
-      console.log("loading movie format")
       var params = new URLSearchParams()
       axios.defaults.withCredentials = true;
       axios.post(globalStore.phpPath + '/php/getMovieFormat.php')
       .then(response => {
-        console.log(response.data)
         this.movieFormatObj = response.data;
       })
     },
@@ -130,12 +121,10 @@ export default {
     }
   },
   beforeCreate: function() {
-    console.log("loading movie format")
     var params = new URLSearchParams()
     axios.defaults.withCredentials = true;
     axios.post(globalStore.phpPath + '/php/getMovieFormat.php')
     .then(response => {
-      console.log(response.data)
       this.movieFormatObj = response.data
 
     })
