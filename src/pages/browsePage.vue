@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Browse Page</h1>
-    <nav-link></nav-link>
+    <nav-link></nav-Link>
     <all-movies></all-movies>
   </div>
 </template>
@@ -36,8 +36,14 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css?family=Roboto:100');
 h1, a {
   color: white;
 }
 
+h1 {
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  letter-spacing: 3px;
+}
 </style>

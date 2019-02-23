@@ -2,17 +2,17 @@
   <div id="app">
     <div class="loginContainer">
       <div class="signupHeader">
-        <h3>Enter your Information:</h3>
+        <h3>Enter your Information</h3>
       </div>
       <div class="signupInput">
         <p>User Name</p>
-        <input type="text" name="signup_username" value="" v-model="signup_username" class="required">
+        <input type="text" name="signup_username" value="" v-model="signup_username" class="required textBox">
         <p>Password</p>
-        <input type="password" name="signup_password" value="" v-model="signup_password" class="required">
+        <input type="password" name="signup_password" value="" v-model="signup_password" class="required textBox pass">
         <p>Verify Password</p>
-        <input type="password" name="signup_vPassword" value="" v-model="signup_vPassword" class="required">
+        <input type="password" name="signup_vPassword" value="" v-model="signup_vPassword" class="required textBox pass">
         <p>Email</p>
-        <input type="email" name="signup_email" value="" v-model="signup_email" class="required">
+        <input type="email" name="signup_email" value="" v-model="signup_email" class="required textBox">
         <p class="errorMessage">{{errorMessage}}</p>
         <input type="button" name="signup" value="Sign up" v-on:click="validateSignup">
         <p class="center">Or, already have an account?</p>
@@ -51,7 +51,7 @@ export default {
         error = true;
         var passInput = document.getElementsByClassName('pass')
         for (var i = 0; i < passInput.length; i++) {
-          passInput[i].style = "border-bottom: 1px solid Red"
+          passInput[i].style = "border-bottom: 1px Solid Red"
         }
       }
       if (!error) {
@@ -87,59 +87,83 @@ export default {
 </script>
 
 <style scoped>
+#app {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
 .loginContainer {
   width: 90%;
   max-width: 300px;
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
-  background-color: white;
+  background-color: #333;
+  box-shadow: 3px 3px 5px Black;
+  padding: 20px;
+
 }
 
 .signupHeader h3 {
   font-family: sans-serif;
   font-weight: lighter;
-  text-indent: 10px;
-  padding: 10px 0px;
+  text-align: center;
   border-bottom: 1px solid #333;
+  color: white;
 }
 
-p {
+.signupInput p {
   font-family: sans-serif;
   font-weight: lighter;
-  text-align: left;
   font-size: 12px;
-  text-indent: 10px;
-  margin: 10px 0px;
+  margin: 10px 0px 0px;
+  color: white;
 }
-
 .center {
   text-align: center;
+  margin: 10px 0px 5px !important;
 }
 
-.signupInput input{
+.signupInput input {
+  background-color: #333;
+  height:30px;
+  outline: none;
+  color: white;
+  border-radius: 6px;
   width: 100%;
-  height: 30px;
-  margin: 5px 0px;
-  border: none;
+  border: 1px solid #555;
+  cursor: pointer;
+  margin-top: 5px;
   padding: 0px;
+}
+
+.textBox {
+  width: 100% !important;
+  height:28px !important;
   text-indent: 10px;
-  background-color: #eee;
-  border-bottom: 1px solid white;
+  cursor: text !important;
+}
+
+.textBox:hover {
+  background-color: #222;
+  box-shadow: 3px 3px 5px Black;
 }
 
 input:focus {
   outline: none;
-  background-color: LightBlue !important;
+  background-color: #222 !important;
 }
 
-.signupInput input[type=button] {
-  background-color: #ccc;
-  font-size: 16px;
+.signupInput input[type=button]{
+  background-color: #333;
   cursor: pointer;
+  padding: 1px;
 }
 
 .signupInput input[type=button]:hover {
-  background-color: LightBlue;
+  background-color: OliveDrab;
+  box-shadow: 3px 3px 5px Black;
 }
 </style>

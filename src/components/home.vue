@@ -1,15 +1,13 @@
 <template>
   <div>
-    <h1>Home Page</h1>
-    <nav-link></nav-link>
+
   </div>
 </template>
 
 <script>
-import NavLinks from '../components/links.vue';
+
 export default {
   components: {
-    'nav-link': NavLinks
   },
   name: 'homeComp_app',
   data () {
@@ -25,8 +23,12 @@ export default {
 </script>
 
 <style scoped>
-h1, a {
+@import url('https://fonts.googleapis.com/css?family=Roboto:100');
+h1 {
+  font-family: 'Roboto', sans-serif;
+  font-weight:100;
   color: white;
+  text-align: center;
 }
 
 </style>

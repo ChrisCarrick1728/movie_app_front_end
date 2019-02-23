@@ -5,7 +5,8 @@ import browse from './pages/browsePage.vue'
 import logout from './pages/logoutPage.vue'
 
 export default [
-  {path: '/', component: login},
+  {path: '/', component: home},
+  {path: '/login', component: login},
   {path: '/logout', component: logout},
   {path: '/home', component: home},
   {path: '/add', component: add},

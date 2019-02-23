@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>Add Movies Page</h1>
     <all-movies></all-movies>
     <movie-search></movie-search>
   </div>

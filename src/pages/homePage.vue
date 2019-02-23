@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <nav-links></nav-links>
     <component
       :is="component"
       v-on:swapLogin="swapLoginComponent">
@@ -9,12 +10,14 @@
 
 <script>
 import Home from '../components/home.vue'
+import NavLinks from '../components/links.vue'
 import axios from 'axios'
 import {globalStore} from '../main.js'
 
 export default {
   components: {
-    'app-home': Home
+    'app-home': Home,
+    'nav-links': NavLinks
   },
   name: 'homePage_app',
   data () {
@@ -32,23 +35,11 @@ export default {
     }
   },
   created: function() {
-    axios.post(globalStore.phpPath + '/php/checkauth.php')
-    .then(response => {
-      console.log(response.data);
-      if (response.data[0] === 'false') {
-        window.location = '#/'
-      }
-    })
+
   }
 }
-</script scoped>
+</script>
 
-<style>
-html, body {
-  margin: 0px;
-}
+<style scoped>
 
-body {
-  background-color: #333;
-}
 </style>

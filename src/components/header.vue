@@ -3,10 +3,6 @@
     <div class="logo">
       <img src="../assets/SVG/moviereel.svg">
       <h1>{{ appName }}</h1>
-      <div class="logout">
-        <router-link to="/logout">logout</router-link>
-
-      </div>
     </div>
   </header>
 </template>
@@ -38,7 +34,6 @@ html, body {
 }
 
 body {
-  background-color: #333 !important;
 }
 
 header {
@@ -46,6 +41,7 @@ header {
   height: 50px;
   top: 0px;
   position: sticky;
+  z-index: 6;
 }
 
 header img {
@@ -67,5 +63,12 @@ header h1 {
   left: 80px;
   padding-left: 20px;
   margin: 0px;
+}
+
+@media only screen and (max-width: 400px) {
+  header h1 {
+    padding-top: 4px;
+    font-size: 13px;
+  }
 }
 </style>

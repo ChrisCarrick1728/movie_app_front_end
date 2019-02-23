@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <nav-links></nav-links>
     <component
       :is="component"
       v-on:swapLogin="swapLoginComponent">
@@ -10,11 +11,13 @@
 <script>
 import Login from '../components/login.vue'
 import Signup from '../components/signup.vue'
+import NavLinks from '../components/links.vue'
 
 export default {
   components: {
     'app-login': Login,
-    'app-signup': Signup
+    'app-signup': Signup,
+    'nav-links': NavLinks
   },
   name: 'loginPage_app',
   data () {
@@ -40,9 +43,5 @@ export default {
 <style scoped>
 html, body {
   margin: 0px;
-}
-
-body {
-  background-color: #333;
 }
 </style>

@@ -2,14 +2,11 @@
   <div id="app">
     <app-header></app-header>
     <router-view></router-view>
-    <!-- <component
-      :is="main_component"
-      v-on:changeComponent="updateComponent($event)">
-    </component> -->
   </div>
 </template>
 
 <script>
+import NavLinks from './components/links.vue';
 import Header from './components/header.vue'
 import Login from './pages/loginPage.vue'
 import Home from './pages/homePage.vue'
@@ -20,12 +17,13 @@ export default {
   components: {
     'app-header': Header,
     'app-login': Login,
-    'app-home': Home
+    'app-home': Home,
+    'nav-link': NavLinks
   },
   name: 'main_app',
   data () {
     return {
-      main_component: 'app-login'
+      main_component: 'app-home'
     }
   },
   methods: {
@@ -43,7 +41,18 @@ html, body {
   margin: 0px;
 }
 
+html {
+  background-image: url('../src/assets/SVG/background.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  background-attachment: fixed;
+  background-color: #323232;
+  width: 100%;
+}
+
 body {
-  background-color: #333;
+  height: 100%;
+  overflow: scroll;
 }
 </style>
